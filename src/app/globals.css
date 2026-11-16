@@ -6,12 +6,15 @@
   --color-ink: #203f35;
   --color-brand: #245a46;
   --color-brand-dark: #1c4737;
-  --color-muted: #64716a;
+  --color-muted: #5c6962; /* Figma #64716a, darkened to reach 4.5:1 on all tinted surfaces */
   --color-line: #e3e7de;
   --color-numeral: #a9b9a5;
+  --color-field: #dde3d9; /* auth input / outline-button border */
 
   --color-sage-50: #f0f3ec;
   --color-sage-100: #eaf0e7;
+  --color-sage-125: #e8eee3; /* adoption summary panels / status pills */
+  --color-sage-225: #d7e1cf; /* adoption pet portrait */
   --color-sage-150: #e6ecdf;
   --color-sage-175: #e9ede3;
   --color-sage-200: #dfe8d8;
@@ -25,12 +28,18 @@
   --color-peach-100: #f5e8da;
   --color-peach-200: #edddc5;
   --color-peach-500: #f0b183;
+  --color-peach-25: #f9f2e9; /* rehoming badge on discover cards (14:37) */
 
   --color-lilac-100: #ede8f0;
 
+  /* messages / account / states (frames 14:61, 14:63) */
+  --color-sand-50: #f8f8f3;
+  --color-sage-400: #b7c0b3;
+  --color-danger-ink: #8b4941;
+
   --color-danger: #b4483c;
   --color-danger-50: #fbecea;
-  --color-warning: #a8742a;
+  --color-warning: #8f6120; /* 4.85:1 on warning-50 */
   --color-warning-50: #fbf2e2;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

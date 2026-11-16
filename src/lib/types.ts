@@ -36,8 +36,24 @@ export interface PetHealth {
   notes: string;
 }
 
+/** Yes / No / Unknown answer used by the "Health & care" step. */
+export type TriState = "yes" | "no" | "unknown";
+export type EnergyLevel = "low" | "moderate" | "high";
+
+/** Extra care details collected by the post-a-pet wizard (Figma 14:49 / 14:51). Optional on older records. */
+export interface PetDetails {
+  vaccinated: TriState | "";
+  spayedNeutered: TriState | "";
+  microchipped: TriState | "";
+  houseTrained: TriState | "";
+  energyLevel: EnergyLevel | "";
+  behavior: string; // "Behavior & special care"
+  idealHome: string; // "His/Her ideal home"
+}
+
 export interface Pet {
   id: string;
+  details?: PetDetails;
   name: string;
   species: Species;
   breed: string;
@@ -92,6 +108,8 @@ export interface Application {
     experience: string;
     hoursAlone: string;
     message: string;
+    /** "I own my home" / "I rent with permission" … (added for the 12:34 application form) */
+    housingPermission?: string;
   };
   createdAt: string;
   updatedAt: string;
@@ -157,6 +175,9 @@ export interface PetDraft {
   story: string;
   reasonForRehoming: string;
   photos: string[];
+  /** Unit the age was entered in (UI only; ageMonths stays the source of truth). */
+  ageUnit?: "months" | "years";
+  details?: PetDetails;
 }
 
 export interface DB {
@@ -172,4 +193,8 @@ export interface DB {
   pendingVerificationEmail: string | null;
   resetTokens: Record<string, string>; // token -> email
   draft: PetDraft | null;
+  /** Saved adoption-application drafts, keyed `${userId}:${petId}`. Optional for older stored DBs. */
+  applicationDrafts?: Record<string, Application["answers"]>;
+  /** Blocked users, keyed by blocker id. Conversations with a blocked user are hidden for the blocker. Optional for older stored DBs. */
+  blocks?: Record<string, string[]>;
 }

@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pawhaven
 
-## Getting Started
+A pet adoption & rehoming marketplace — "A best friend. A fresh start." Built from the PawHaven Figma design as a fully working static front end.
 
-First, run the development server:
+**Stack:** Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4. There is no backend yet: all data goes through a mock store (`src/lib/store.tsx`) persisted in `localStorage`, ready to be swapped for Supabase.
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Demo accounts (mock):
+- `demo@pawhaven.app` / `pawhaven123` — regular user with listings, applications and messages
+- `admin@pawhaven.app` / `pawhaven123` — moderator (Moderation workspace)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Email verification accepts any 6-digit code. Password reset shows a demo link on screen instead of sending an email.
 
-## Learn More
+## Features
+- Auth: log in, sign up, verify email, forgot/reset password
+- Discover: home search, Find a pet (filters in URL), pet profile, saved pets
+- Adoption: application form, request status tracker, owner review of requests
+- Post a pet: 4-step wizard with photo upload and auto-saved drafts, My listings
+- Messages with report/block, Account & privacy (export/delete data), Safety & support
+- Moderation workspace for admins, plus 404, error, loading and empty states
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Docs
+- `docs/CONVENTIONS.md` — route ↔ Figma frame map, design tokens, shared components
+- `docs/VERIFY_PROMPT.md` — full QA prompt that checks every feature
+- `docs/QA_REPORT.md` — latest QA results
